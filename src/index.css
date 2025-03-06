@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  color: #d9d9d9;
+  background-color: #262626;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+}
+
+header {
+  text-align: center;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes celebrate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.status-section {
+  text-align: center;
+  margin-top: 2.3cm;
+  padding: 0.5em; /* Adjusted padding */
+  color: #f4f9da;
+  border-radius: 8px; /* Optional: Add rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+}
+
+.status-section.farewell {
+  background-color: #8a2be2;
+}
+
+/* Green background when the game is won */
+.status-section.win {
+  background-color: #10a95b !important; /* Green */
+  animation: celebrate 0.5s ease-in-out; /* Celebrate animation on win */
+}
+
+/* Red background when the game is lost */
+.status-section.lose {
+  background-color: #ec5d49 !important; /* Red */
+  animation: shake 0.5s ease-in-out; /* Shake animation on lose */
+}
+
+.language-chips {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 45px;
+  margin-bottom: 36px;
+  max-width: 350px;
+  justify-content: center;
+  gap: 5px;
+  margin-inline: auto; /* Center the container */
+}
+
+.chip {
+  border-radius: 3px;
+  padding: 4.5px;
+  position: relative; /* Required for ::before */
+  transition: transform 0.3s ease;
+}
+
+.chip:hover {
+  animation: pulse 0.5s ease-in-out; /* Pulse animation on hover */
+}
+
+.chip.lost::before {
+  content: "?";
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  font-size: 0.85rem;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.word {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 35px;
+}
+
+.word > span {
+  height: 40px;
+  width: 40px;
+  background-color: #323232;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  border-bottom: 1px solid #f4f9da;
+}
+
+.keyboard-type {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 450px;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto; /* Center the container */
+}
+
+.keyboard-type > button {
+  height: 35px;
+  width: 35px;
+  background-color: #fcba29;
+  border: 1px solid #d7d7d7;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.keyboard-type > button:active {
+  transform: scale(0.95); /* Shrink button when clicked */
+}
+
+.game-button {
+  background-color: #11b5e5;
+  border: 1px solid #d7d7d7;
+  border-radius: 4px;
+  width: 225px;
+  height: 40px;
+  padding: 6px 12px;
+  display: block;
+  margin-inline: auto;
+  cursor: pointer;
+  margin-top: 36px;
+  transition: transform 0.3s ease;
+}
+
+.game-button:hover {
+  animation: bounce 0.5s ease-in-out; /* Bounce animation on hover */
+}
+
+button.correct {
+  background-color: #10a95b;
+}
+
+button.wrong {
+  background-color: #ec5d49;
+}
